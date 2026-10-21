@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل الدخول | Hassan Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0f172a;overflow:hidden}
+.bg{position:absolute;inset:0;z-index:-1}
+.bg span{position:absolute;width:500px;height:500px;border-radius:50%;filter:blur(120px);opacity:.6}
+.bg span:nth-child(1){background:#2563eb;top:-100px;right:-100px;animation:move 8s infinite alternate}
+.bg span:nth-child(2){background:#7c3aed;bottom:-100px;left:-100px;animation:move 10s infinite alternate-reverse}
+@keyframes move{to{transform:translate(100px,80px)}}
+.card{width:95%;max-width:950px;background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:24px;display:grid;grid-template-columns:1.2fr 1fr;overflow:hidden;box-shadow:0 25px 50px rgba(0,0,0,.4)}
+.left{padding:40px;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;display:flex;flex-direction:column;justify-content:center}
+.left h1{font-size:36px;line-height:1.2;margin-bottom:15px}
+.left p{opacity:.9;margin-bottom:30px}
+.left ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.left ul li{background:rgba(255,255,255,.15);padding:12px 16px;border-radius:12px}
+.right{padding:40px;background:#fff}
+.right h2{color:#0f172a;font-size:28px;margin-bottom:8px}
+.right .sub{color:#64748b;margin-bottom:25px}
+.input-group{position:relative;margin-bottom:18px}
+.input-group input{width:100%;padding:14px 16px;border:2px solid #e2e8f0;border-radius:12px;font-size:15px;transition:.3s;outline:none}
+.input-group input:focus{border-color:#2563eb}
+.input-group label{position:absolute;top:-10px;right:12px;background:#fff;padding:0 6px;font-size:12px;color:#2563eb;font-weight:600}
+.btn-main{width:100%;padding:14px;background:#0f172a;color:#fff;border:none;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;transition:.3s;margin-top:10px}
+.btn-main:hover{background:#2563eb;transform:translateY(-2px);box-shadow:0 10px 20px rgba(37,99,235,.3)}
+.divider{text-align:center;margin:22px 0;color:#94a3b8;position:relative}
+.divider::before{content:'';position:absolute;top:50%;right:0;left:0;height:1px;background:#e2e8f0;z-index:-1}
+.divider span{background:#fff;padding:0 12px}
+.social{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.social button{padding:12px;border:1px solid #e2e8f0;border-radius:12px;background:#fff;cursor:pointer;font-weight:600;transition:.3s}
+.social button:hover{background:#f8fafc}
+@media(max-width:800px){.card{grid-template-columns:1fr}.left{display:none}}
+</style>
+</head>
+<body>
+<div class="bg"><span></span><span></span></div>
+<div class="card">
+  <div class="left">
+    <h1>أهلا بيك في منصة حـسـن التعليمية</h1>
+    <p>نفس فكرة الزيرو، تتعلم وتطبق وتاخد شهادة.</p>
+    <ul>
+      <li>✓ +120 كورس برمجة مجاني</li>
+      <li>✓ تحديات يومية ومسارات كاملة</li>
+      <li>✓ مجتمع عربي 500k مطور</li>
+    </ul>
+  </div>
+  <div class="right">
+    <h2>تسجيل الدخول</h2>
+    <p class="sub">سجل دخولك عشان تكمل مسار Flutter</p>
+    <form action="page.html">
+      <div class="input-group"><label>البريد الإلكتروني</label><input type="email" id="email" placeholder="Hassan@example.com" required></div>
+      <div class="input-group"><label>كلمة المرور</label><input type="password" id="pass" placeholder="••••••••" required></div>
+      <button class="btn-main">دخول →</button>
+      <div class="divider"><span>أو</span></div>
+      <div class="social"><button>Google</button><button>GitHub</button></div>
+    </form>
+  </div>
+</div>
+<script>
+function login(e){e.preventDefault();
+  const email=document.getElementById('email').value;
+  if(!email.includes('@')){alert('الايميل غلط');return}
+  alert('تم تسجيل الدخول بنجاح يا '+email);
+  // هنا تربطها بـ Firebase Auth
+}
+</script>
+</body>
+</html>
